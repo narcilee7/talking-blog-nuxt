@@ -8,5 +8,5 @@ export default defineEventHandler(async (event) => {
   const value = await redis.get(key);
 
   // 返回 Redis 的值，如果 key 不存在则返回 null
-  return { value: 'nihao ' };
+  return { value: 'nihao' };
 });
