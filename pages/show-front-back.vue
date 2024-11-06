@@ -1,8 +1,11 @@
-<!-- 介绍前后端 -->
-<script setup lang='ts'>
+<script setup lang="ts">
+import { ref, onMounted, onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
+
 const router = useRouter();
 
-const handleKeydown = (e) => {
+// 监听键盘事件
+const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === 'ArrowLeft') {
     router.back();
   }
@@ -12,48 +15,32 @@ const handleKeydown = (e) => {
   if (e.key === 'Enter') {
     bodyIfshow.value = true;
   }
-}
+};
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown);
-})
+});
 
 onBeforeMount(() => {
   window.removeEventListener('keydown', handleKeydown);
-})
-// Header msg
-const fullText = '前后端学哪个好？';
-const typingSpeed = 200;
-const typedText = ref('');
-
-
-onMounted(() => {
-  let index = 0;
-
-  const interval = setInterval(() => {
-    typedText.value += fullText[index];
-    index += 1;
-
-    if (index === fullText.length) {
-      clearInterval(interval);
-    }
-  }, typingSpeed);
 });
 
-// body msg
+const fullText = '前后端学哪个好？';
 const bodyIfshow = ref(false);
+const showTitile = '前端和后端是描述进程开始和结束的通用词汇。前端作用于采集输入信息，后端进行处理。计算机程序的界面样式，视觉呈现属于前端。';
 
 </script>
 
 <template>
- <div class="show">
-    <div class="header" :class="{ 'body-show': bodyIfshow }">{{ typedText }}</div>
-    <div class="body" v-if="bodyIfshow">这是body</div>
-    
- </div>
+  <div class="show">
+    <div class="header" :class="{ 'body-show': bodyIfshow }">{{ fullText }}</div>
+    <div class="body" v-if="bodyIfshow">
+      <div class="show-card"><span style="font-weight: bold">维基百科: </span>{{ showTitile }}</div>
+    </div>
+  </div>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .show {
   height: 100%;
   width: 100%;
@@ -67,17 +54,25 @@ const bodyIfshow = ref(false);
     font-weight: 600;
     height: 60px;
   }
-
-  .body-show {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  }
   
   .body {
-    height: 100%;
+    height: 85%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .show-card {
+      width: 80%;
+      height: 80%;
+      background-color: #f5f5f5;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
   }
 }
 </style>
