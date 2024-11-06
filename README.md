@@ -1,75 +1,19 @@
-# Nuxt Minimal Starter
+# talking-blog(一个宣讲展示的网站)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 宣讲面向人群: 大一新生
+## 宣讲主题: 前后端介绍，方向选择
+## 宣讲目标: 对大一新生进行软件开发的方向介绍, 给予一定引导，做出更有价值的成就
+## 宣讲进度: 20分钟
+## 宣讲要求: 不能生搬硬套，尽可能讲的傻瓜，有趣，且不能光展示页面，要做有趣的交互，呈现不一样的效果,最重要的: 要传递核心的价值观 **创造普世的价值**, 个人价值观少输出，多输出知识与正确认知
+## 宣讲整体架构
 
-## Setup
+### 1.介绍前后端，前后端学习什么
 
-Make sure to install dependencies:
+#### 主要内容: 分享前后端的不同，架构的不同,薪资待遇的不同,发展的不同
+**抛出结论，前后端都要学**
+### 2.确定方向，如何高效学习?
 
-```bash
-# npm
-npm install
+### 3.分享学习路线，学习方法
 
-# pnpm
-pnpm install
+### 4.价值观输出
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
