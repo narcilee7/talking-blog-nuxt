@@ -7,7 +7,7 @@ const router = useRouter();
 // 监听键盘事件
 const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === 'ArrowLeft') {
-    router.back();
+    router.push('/pre-talk');
   }
   if (e.key === 'ArrowRight') {
     router.push('/show-front-back');
