@@ -1,46 +1,51 @@
-<script setup lang="ts">
-import { ref, onMounted, onBeforeMount } from 'vue';
-import { useRouter } from 'vue-router';
-
+<script setup lang='ts'>
 const router = useRouter();
 
-// 监听键盘事件
 const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === 'ArrowLeft') {
-    router.push('/pre-talk');
+    router.push('/part1');
   }
   if (e.key === 'ArrowRight') {
-    router.push('/show-front-back');
+    router.push('/part3');
   }
   if (e.key === 'Enter') {
     bodyIfshow.value = true;
-  }
-  if (bodyIfshow.value && e.key === 'Enter') {
-    nextShow.value = true;
   }
 };
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown);
+
+  let index = 0;
+  const typingInterval = setInterval(() => {
+    if (index < title.length) {
+      titleReactive.value += title[index];
+      index++;
+    } else {
+      clearInterval(typingInterval);
+    }
+  }, 200);
 });
 
-onBeforeMount(() => {
+onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown);
 });
 
-const fullText = '前后端学哪个好？';
+const title = '前后端学哪个好?';
+const titleReactive = ref('');
 const bodyIfshow = ref(false);
-const showTitile = '前端和后端是描述进程开始和结束的通用词汇。前端作用于采集输入信息，后端进行处理。计算机程序的界面样式，视觉呈现属于前端。';
-const nextShow = ref(false);
 
 </script>
 
 <template>
   <div class="show">
-    <div class="header" :class="{ 'body-show': bodyIfshow }">{{ fullText }}</div>
+    <div class="header" :class="{ 'body-show': bodyIfshow }">{{ titleReactive }}</div>
     <div class="body" v-if="bodyIfshow">
-      <div class="show-card"><span style="font-weight: bold">维基百科: </span>{{ showTitile }}</div>
-      <div class="show-card"><span style="font-weight: bold">维基百科: </span>{{ showTitile }}</div>
+      <div class="show-card">
+        <span style="color: black">答案: </span>
+        <p>  1.前后端只是技术栈的区别，技术思维不同，侧重点不同，都属于软件开发，其实都需要去掌握，我们本质上是做软件开发，而不是前后端开发。</p>
+        <p style="margin-top: 10px">  2.2.技术只是实现需求的工具，仅此而已。我们属于工程师, 我们要考虑的更多是满足用户需求, 满足市场需求。</p>
+      </div>
     </div>
   </div>
 </template>

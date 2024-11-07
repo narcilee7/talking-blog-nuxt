@@ -3,10 +3,11 @@ const router = useRouter();
 
 const handleKeydown = (e) => {
   if (e.key === 'ArrowLeft') {
-    router.push('/');
+    // router.back();
+    router.push('/part4')
   }
   if (e.key === 'ArrowRight') {
-    router.push('/part1');
+    router.push('/');
   }
 }
 
@@ -21,7 +22,7 @@ onBeforeMount(() => {
 
 <template>
   <div class="pre-talk">
-    <h1>大家好😍</h1>
+    <h1>谢谢大家🫡</h1>
   </div>
 </template>
 
