@@ -6,7 +6,7 @@ const handleKeydown = (e) => {
     router.back();
   }
   if (e.key === 'ArrowRight') {
-    router.push('/show-front-back');
+    router.push('/part1');
   }
 }
 

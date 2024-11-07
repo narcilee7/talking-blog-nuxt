@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeMount } from 'vue';
-import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
@@ -10,15 +8,28 @@ const handleKeydown = (e: KeyboardEvent) => {
     router.push('/pre-talk');
   }
   if (e.key === 'ArrowRight') {
-    router.push('/show-front-back');
+    router.push('/part2');
   }
   if (e.key === 'Enter') {
     bodyIfshow.value = true;
+  }
+  if (bodyIfshow.value && e.key === 'Enter') {
+    nextShow.value = true;
   }
 };
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown);
+
+  let index = 0;
+  const typingInterval = setInterval(() => {
+    if (index < showTitile.length) {
+      showTitileByInterval.value += showTitile[index];
+      index++;
+    } else {
+      clearInterval(typingInterval);
+    }
+  }, 50);
 });
 
 onBeforeMount(() => {
@@ -28,6 +39,9 @@ onBeforeMount(() => {
 const fullText = '前后端学哪个好？';
 const bodyIfshow = ref(false);
 const showTitile = '前端和后端是描述进程开始和结束的通用词汇。前端作用于采集输入信息，后端进行处理。计算机程序的界面样式，视觉呈现属于前端。';
+const showTitileByInterval = ref('');
+const nextShow = ref(false);
+
 
 </script>
 
@@ -66,11 +80,12 @@ const showTitile = '前端和后端是描述进程开始和结束的通用词汇
       width: 80%;
       height: 80%;
       background-color: #f5f5f5;
+      color: #442b2b;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
       border-radius: 10px;
       padding: 20px;
-      font-size: 20px;
-      line-height: 30px;
+      font-size: 50px;
+      line-height: 60px;
       margin-bottom: 20px;
     }
   }
