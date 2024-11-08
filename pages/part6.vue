@@ -4,7 +4,7 @@ const router = useRouter();
 const handleKeydown = (e) => {
   if (e.key === 'ArrowLeft') {
     // router.back();
-    router.push('/part4')
+    router.push('/part5')
   }
   if (e.key === 'ArrowRight') {
     router.push('/');

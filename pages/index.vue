@@ -5,9 +5,6 @@ const handleGotoNextPage = () => {
 }
 
 const handleKeydown = (e) => {
-  if (e.key === 'ArrowLeft') {
-    router.back();
-  }
   if (e.key === 'ArrowRight') {
     router.push('/pre-talk');
   }
