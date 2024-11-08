@@ -59,7 +59,7 @@ const tilteByInterval = ref('');
   .header {
     padding: 20px;
     font-family: 'Courier New', monospace;
-    font-size: 40px;
+    font-size: 60px;
     color: black;
     font-weight: 600;
     height: 60px;
