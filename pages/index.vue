@@ -23,7 +23,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="index-title" @click="handleGotoNextPage">
+  <div class="index-title">
     <img src="~/assets/img/index.jpg" alt="">
   </div>
 </template>
