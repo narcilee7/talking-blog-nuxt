@@ -77,7 +77,7 @@ const bodyIfshow = ref(false);
       width: 80%;
       height: 80%;
       background-color: #f5f5f5;
-      color: #442b2b;
+      color: #041311;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
       border-radius: 10px;
       padding: 20px;
